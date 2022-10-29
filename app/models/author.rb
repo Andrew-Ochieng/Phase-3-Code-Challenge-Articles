@@ -11,5 +11,6 @@ class Author
 
 end
 
+my_name = Author.new("Elon Musk")
 
 binding.pry
