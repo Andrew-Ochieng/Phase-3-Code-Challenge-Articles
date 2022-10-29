@@ -1,4 +1,3 @@
-require 'pry'
 class Article
     attr_reader :title, :magazine, :author
 
@@ -18,8 +17,4 @@ class Article
 
 end
 
-article1 = Article.new("Drew", "New York Times", "Corporations Lobbying")
-article2 = Article.new("Jenny", "Bloomberg", "Sustainable Development")
 
-
-binding.pry

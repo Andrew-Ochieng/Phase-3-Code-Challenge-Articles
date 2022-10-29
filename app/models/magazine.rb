@@ -1,4 +1,3 @@
-require 'pry'
 class Magazine
   attr_accessor :name, :category
   
@@ -14,12 +13,18 @@ class Magazine
     @@all
   end
 
+  def contributors
+    articles = Article.all.filter do |article| 
+      self == article.magazine
+    end
+
+    articles.map do |article|
+      article.author
+    end
+
+  end
 
 end
 
-magazine1 = Magazine.new("New York Times", "Politics")
-magazine2 = Magazine.new("Bloomberg", "Kids")
-magazine3 = Magazine.new("The WREAT", "Sustainable Development") 
 
 
-binding.pry
