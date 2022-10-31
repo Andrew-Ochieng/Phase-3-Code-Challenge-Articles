@@ -4,31 +4,39 @@ class Author
 
   def initialize(name)
     @name = name
-    @articles = []
     @magazines = []
   end
 
+  # returns article(s) belonging to a single author
   def articles
-    @articles
+    Article.all.select do |article| 
+      article.author == self
+    end
   end
 
+  # returns unique array of Magazine instances the author has written
   def magazines
-    @magazines.uniq
+    uniq_magazine = Article.all.select do |article|
+      article.author == self
+    end
+    uniq_magazine.map.uniq do |article|
+      article.magazine
+    end
   end
+
 
   def add_article(magazine, title)
-    articles << Article.new(self, magazine, title)
+    Article.new(self, magazine, title)
     magazines << magazine
   end
 
   def topic_areas
-    # magazines.map {|magazine| magazine.category}.uniq
-    magazin = magazines.map do |magazine|
-      magazine.category
+    arr = Article.all.select do |article|
+      article.author == self
     end
-    magazin.uniq
+    arr.map do |article|
+      article.magazine.category
+    end.uniq
   end
-
-
 
 end
