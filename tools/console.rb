@@ -39,4 +39,4 @@ author1.magazines
 ### DO NOT REMOVE THIS
 binding.pry
 
-0
+
